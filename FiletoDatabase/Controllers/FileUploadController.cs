@@ -51,7 +51,6 @@ namespace FiletoDatabase.Controllers
             PageMargins pageMargins = pageSetup.PageMargins;
             pageMargins.Top = pageMargins.Bottom = pageMargins.Left = pageMargins.Right = 0;
             document.Save(output);
-
         }
 
         public void WordToHtml(string path,string output)
@@ -71,6 +70,7 @@ namespace FiletoDatabase.Controllers
         public ActionResult GetUploadedFile()
         {
             dbDoctoHtmlEntities dbModel = new dbDoctoHtmlEntities();
+            //Editorden gelen string(html) verisi
             var temp = System.IO.File.ReadAllText(desktopPathHtml);
             return View(dbModel.FilePath.ToList());
         }
